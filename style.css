@@ -1,0 +1,54 @@
+#outer-div {
+  background-image: url('food.jpg');
+  background-repeat: no-repeat;
+  background-size: 1080px auto;
+
+  background-position: center top;
+  padding: 70px 90px 120px 90px;
+  border: 2px solid blue;
+}
+
+#inner-div {
+  position: relative;
+  border: 2px solid red;
+}
+
+#blur-layer {
+
+  /* A separate instance of the image, but this one will be blurred */
+  background-image: url('food.jpg');
+  background-repeat: no-repeat;
+  background-size: 1080px auto;
+  border: 5px solid yellow;
+
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #gray-box's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+
+  /* Pull the background 70px higher to the same place as #outer-div's */
+  background-position: center -70px;
+
+  /* Blur it! */
+  -webkit-filter: blur(10px);
+
+}
+
+#gray-box {
+  /* Put this on top of the blurred layer */
+  visibility: hidden;
+  position: relative;
+  z-index: 100;
+  padding: 20px;
+  background: rgba(0,0,0,0.5);
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 50px;
+  font-size: 50px;
+}
